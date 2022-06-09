@@ -1,6 +1,6 @@
-import 'package:ecomprofire/view/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
+import '../../view/view_shelf.dart';
 
 final Map<String, WidgetBuilder> routes = {
- SplashScreen
+  SplashScreen.routeName: (context) => SplashScreen(),
 };

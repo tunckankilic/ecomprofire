@@ -1,6 +1,5 @@
 import 'package:ecomprofire/app/constants/size_config.dart';
 import 'package:flutter/material.dart';
-
 import 'components/splash_body.dart';
 
 class SplashScreen extends StatefulWidget {
