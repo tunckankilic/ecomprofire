@@ -1,6 +1,6 @@
-import 'package:ecomprofire/constants.dart';
-import 'package:ecomprofire/screens/splash-screen/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'app/constants/constants.dart';
+import 'view/view_shelf.dart';
 
 void main() => runApp(MyApp());
 
