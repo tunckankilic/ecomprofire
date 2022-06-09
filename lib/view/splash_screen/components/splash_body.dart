@@ -2,6 +2,7 @@ import 'package:ecomprofire/app/constants/constants.dart';
 import 'package:flutter/material.dart';
 import '../../../app/constants/size_config.dart';
 import '../../components/default_button.dart';
+import '../../sign_in/sign_in_screen.dart';
 import 'splash_content.dart';
 
 class SplashBody extends StatefulWidget {
@@ -68,7 +69,7 @@ class _SplashBodyState extends State<SplashBody> {
                     DefaultButton(
                       text: "Continue",
                       press: () {
-                        // Navigator.pushNamed(context, SignInScreen.routeName);
+                        Navigator.pushNamed(context, SignInScreen.routeName);
                       },
                     ),
                     Spacer(),

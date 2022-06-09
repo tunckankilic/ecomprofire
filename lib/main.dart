@@ -1,5 +1,6 @@
+import 'package:ecomprofire/app/constants/routes.dart';
 import 'package:flutter/material.dart';
-import 'app/constants/constants.dart';
+import 'app/theme/theme.dart';
 import 'view/view_shelf.dart';
 
 void main() => runApp(MyApp());
@@ -10,20 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Ecomprofire',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: "Muli",
-        textTheme: TextTheme(
-          bodyText1: TextStyle(
-            color: kTextColor,
-          ),
-          bodyText2: TextStyle(
-            color: kTextColor,
-          ),
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: theme(),
       initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
 }
