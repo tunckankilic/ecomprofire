@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-
 import '../../app/enums/enums.dart';
 import '../components/coustom_bottom_nav_bar.dart';
 import 'components/body.dart';
