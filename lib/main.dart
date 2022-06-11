@@ -1,7 +1,7 @@
 import 'package:ecomprofire/app/constants/routes.dart';
+import 'package:ecomprofire/view/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'app/theme/theme.dart';
-import 'view/view_shelf.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Ecomprofire',
       theme: theme(),
-      initialRoute: SplashScreen.routeName,
+      initialRoute: CartScreen.routeName,
       routes: routes,
     );
   }

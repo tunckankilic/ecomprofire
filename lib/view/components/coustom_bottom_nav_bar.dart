@@ -1,3 +1,4 @@
+import 'package:ecomprofire/view/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -62,7 +63,9 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor
                       : inActiveIconColor,
                 ),
-               onPressed: (){},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(ProfileScreen.routeName);
+                },
               ),
             ],
           )),

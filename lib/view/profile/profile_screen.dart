@@ -1,17 +1,18 @@
-import 'package:ecomprofire/app/constants/size_config.dart';
 import 'package:flutter/material.dart';
 import '../../app/enums/enums.dart';
 import '../components/coustom_bottom_nav_bar.dart';
 import 'components/body.dart';
 
-class HomeScreen extends StatelessWidget {
-  static String routeName = "/home";
+class ProfileScreen extends StatelessWidget {
+  static String routeName = "/profile";
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Profile"),
+      ),
       body: Body(),
-      bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home),
+      bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
     );
   }
 }
