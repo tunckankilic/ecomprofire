@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../app/constants/constants.dart';
 import '../../../app/constants/size_config.dart';
 import 'complete_profile_form.dart';
@@ -29,7 +28,7 @@ class Body extends StatelessWidget {
                 Text(
                   "By continuing your confirm that you agree \nwith our Term and Condition",
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
             ),

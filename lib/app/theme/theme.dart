@@ -22,25 +22,25 @@ AppBarTheme appBarTheme() {
         color: Colors.black,
       ),
       toolbarTextStyle: TextTheme(
-        headline6: TextStyle(
+        titleLarge: TextStyle(
           color: Color(0xFF8B8B8B),
         ),
-      ).bodyText2,
+      ).bodyMedium,
       titleTextStyle: TextTheme(
-        headline6: TextStyle(
+        titleLarge: TextStyle(
           color: Color(0xFF8B8B8B),
           fontWeight: FontWeight.bold,
           fontSize: 20,
         ),
-      ).headline6);
+      ).displaySmall);
 }
 
 TextTheme textTheme() {
   return TextTheme(
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
       color: kTextColor,
     ),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
       color: kTextColor,
     ),
   );

@@ -1,6 +1,6 @@
 import 'package:ecomprofire/app/constants/size_config.dart';
 import 'package:flutter/material.dart';
-import '../../app/base/models/Cart.dart';
+import '../../app/base/models/cart.dart';
 import 'components/body.dart';
 import 'components/check_out_card.dart';
 
@@ -26,7 +26,7 @@ class CartScreen extends StatelessWidget {
           ),
           Text(
             "${demoCarts.length} items",
-            style: Theme.of(context).textTheme.caption,
+            style: Theme.of(context).textTheme.bodySmall,
           ),
         ],
       ),

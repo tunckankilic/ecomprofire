@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../app/base/models/Cart.dart';
+import '../../../app/base/models/cart.dart';
 import '../../../app/constants/constants.dart';
 import '../../../app/constants/size_config.dart';
-
 
 class CartCard extends StatelessWidget {
   const CartCard({
@@ -48,7 +47,7 @@ class CartCard extends StatelessWidget {
                 children: [
                   TextSpan(
                       text: " x${cart.numOfItem}",
-                      style: Theme.of(context).textTheme.bodyText1),
+                      style: Theme.of(context).textTheme.bodyLarge),
                 ],
               ),
             )

@@ -1,4 +1,4 @@
-import 'package:ecomprofire/view/sign_up/sign_up_screen.dart';
+import 'package:ecomprofire/view/auth/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/constants/constants.dart';

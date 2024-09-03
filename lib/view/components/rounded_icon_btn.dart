@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../app/constants/constants.dart';
 import '../../app/constants/size_config.dart';
 
-
 class RoundedIconBtn extends StatelessWidget {
   const RoundedIconBtn({
     Key? key,
@@ -34,8 +33,8 @@ class RoundedIconBtn extends StatelessWidget {
       ),
       child: TextButton(
         style: TextButton.styleFrom(
+          foregroundColor: kPrimaryColor,
           padding: EdgeInsets.zero,
-          primary: kPrimaryColor,
           backgroundColor: Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),

@@ -2,7 +2,7 @@ import 'package:ecomprofire/app/constants/constants.dart';
 import 'package:flutter/material.dart';
 import '../../../app/constants/size_config.dart';
 import '../../components/default_button.dart';
-import '../../sign_in/sign_in_screen.dart';
+import '../../auth/sign_in/sign_in_screen.dart';
 import 'splash_content.dart';
 
 class SplashBody extends StatefulWidget {
