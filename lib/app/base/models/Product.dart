@@ -1,11 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Product {
-  final int id;
+  final String id;
   final String title;
   final String description;
   final List<String> images;
@@ -41,30 +42,22 @@ class Product {
     };
   }
 
-  factory Product.fromMap(Map<String, dynamic> map) {
+  factory Product.fromSnapshot(DocumentSnapshot snapshot) {
+    Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
     return Product(
-      id: map['id'] as int,
-      title: map['title'] as String,
-      description: map['description'] as String,
-      images: List<String>.from(
-        (map['images'] as List<String>),
-      ),
-      colors: List<Color>.from(
-        (map['colors'] as List<int>).map<Color>(
-          (x) => Color(x),
-        ),
-      ),
-      rating: map['rating'] as double,
-      price: map['price'] as double,
-      isFavourite: map['isFavourite'] as bool,
-      isPopular: map['isPopular'] as bool,
+      id: snapshot.id,
+      title: data['title'] as String,
+      description: data['description'] as String,
+      images: List<String>.from(data['images']),
+      colors: (data['colors'] as List<dynamic>)
+          .map((colorValue) => Color(colorValue as int))
+          .toList(),
+      rating: (data['rating'] as num).toDouble(),
+      price: (data['price'] as num).toDouble(),
+      isFavourite: data['isFavourite'] as bool,
+      isPopular: data['isPopular'] as bool,
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory Product.fromJson(String source) =>
-      Product.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -100,7 +93,7 @@ class Product {
   }
 
   Product copyWith({
-    int? id,
+    String? id,
     String? title,
     String? description,
     List<String>? images,
@@ -128,7 +121,7 @@ class Product {
 
 List<Product> demoProducts = [
   Product(
-    id: 1,
+    id: "1",
     images: [
       "assets/images/ps4_console_white_1.png",
       "assets/images/ps4_console_white_2.png",
@@ -149,7 +142,7 @@ List<Product> demoProducts = [
     isPopular: true,
   ),
   Product(
-    id: 2,
+    id: "2",
     images: [
       "assets/images/Image Popular Product 2.png",
     ],
@@ -166,7 +159,7 @@ List<Product> demoProducts = [
     isPopular: true,
   ),
   Product(
-    id: 3,
+    id: "3",
     images: [
       "assets/images/glap.png",
     ],
@@ -184,7 +177,7 @@ List<Product> demoProducts = [
     isPopular: true,
   ),
   Product(
-    id: 4,
+    id: "4",
     images: [
       "assets/images/wireless headset.png",
     ],

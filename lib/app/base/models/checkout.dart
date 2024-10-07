@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:ecomprofire/app/base/models/product.dart';
@@ -35,22 +36,20 @@ class Checkout {
     };
   }
 
-  factory Checkout.fromMap(Map<String, dynamic> map) {
+  factory Checkout.fromSnapshot(DocumentSnapshot snapshot) {
+    Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
     return Checkout(
-      id: map['id'] as String,
+      id: snapshot.id,
       products: List<Product>.from(
-        (map['products'] as List<int>).map<Product>(
-          (x) => Product.fromMap(x as Map<String, dynamic>),
+        (data['products'] as List<dynamic>).map(
+          (productData) => Product.fromSnapshot(productData),
         ),
       ),
-      total: map['total'] as int,
+      total: data['total'] as int,
     );
   }
 
   String toJson() => json.encode(toMap());
-
-  factory Checkout.fromJson(String source) =>
-      Checkout.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() => 'Checkout(id: $id, products: $products, total: $total)';

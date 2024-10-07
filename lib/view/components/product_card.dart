@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../app/base/models/Product.dart';
+import '../../app/base/models/product.dart';
 import '../../app/constants/constants.dart';
 import '../../app/constants/size_config.dart';
 import '../details/details_screen.dart';
-
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
     Key? key,
     this.width = 140,
-    this.aspectRetio = 1.02,
+    this.aspectRatio = 1.02,
     required this.product,
   }) : super(key: key);
 
-  final double width, aspectRetio;
+  final double width, aspectRatio;
   final Product product;
 
   @override
@@ -27,7 +26,7 @@ class ProductCard extends StatelessWidget {
         child: GestureDetector(
           onTap: () => Navigator.pushNamed(
             context,
-            DetailsScreen.routeName,
+            '/details',
             arguments: ProductDetailsArguments(product: product),
           ),
           child: Column(
@@ -42,8 +41,8 @@ class ProductCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Hero(
-                    tag: product.id.toString(),
-                    child: Image.asset(product.images[0]),
+                    tag: product.id,
+                    child: Image.network(product.images[0]),
                   ),
                 ),
               ),
@@ -93,4 +92,10 @@ class ProductCard extends StatelessWidget {
       ),
     );
   }
+}
+
+class ProductDetailsArguments {
+  final Product product;
+
+  ProductDetailsArguments({required this.product});
 }

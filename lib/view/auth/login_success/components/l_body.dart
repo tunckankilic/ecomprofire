@@ -3,7 +3,7 @@ import '../../../../app/constants/size_config.dart';
 import '../../../components/default_button.dart';
 import '../../../home/home_screen.dart';
 
-class Body extends StatelessWidget {
+class LBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(

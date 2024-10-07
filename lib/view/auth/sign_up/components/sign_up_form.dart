@@ -1,3 +1,4 @@
+import 'package:ecomprofire/app/base/models/person.dart';
 import 'package:flutter/material.dart';
 import '../../../../app/constants/constants.dart';
 import '../../../../app/constants/size_config.dart';
@@ -13,11 +14,14 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  String? email;
-  String? password;
-  String? conform_password;
-  bool remember = false;
   final List<String?> errors = [];
+  late Person _person;
+
+  @override
+  void initState() {
+    super.initState();
+    _person = Person();
+  }
 
   void addError({String? error}) {
     if (!errors.contains(error))
@@ -64,20 +68,26 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildConformPassFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => conform_password = newValue,
+      onSaved: (newValue) => _person = Person(
+        firstName: _person.firstName,
+        lastName: _person.lastName,
+        phoneNumber: _person.phoneNumber,
+        address: _person.address,
+        email: _person.email,
+        password: _person.password,
+      ),
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.isNotEmpty && password == conform_password) {
+        } else if (value.isNotEmpty && _person.password == value) {
           removeError(error: kMatchPassError);
         }
-        conform_password = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
           addError(error: kPassNullError);
           return "";
-        } else if ((password != value)) {
+        } else if ((_person.password != value)) {
           addError(error: kMatchPassError);
           return "";
         }
@@ -86,8 +96,6 @@ class _SignUpFormState extends State<SignUpForm> {
       decoration: InputDecoration(
         labelText: "Confirm Password",
         hintText: "Re-enter your password",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
@@ -97,14 +105,20 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => password = newValue,
+      onSaved: (newValue) => _person = Person(
+        firstName: _person.firstName,
+        lastName: _person.lastName,
+        phoneNumber: _person.phoneNumber,
+        address: _person.address,
+        email: _person.email,
+        password: newValue,
+      ),
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
         } else if (value.length >= 8) {
           removeError(error: kShortPassError);
         }
-        password = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -119,8 +133,6 @@ class _SignUpFormState extends State<SignUpForm> {
       decoration: InputDecoration(
         labelText: "Password",
         hintText: "Enter your password",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
@@ -130,7 +142,14 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => email = newValue,
+      onSaved: (newValue) => _person = Person(
+        firstName: _person.firstName,
+        lastName: _person.lastName,
+        phoneNumber: _person.phoneNumber,
+        address: _person.address,
+        email: newValue,
+        password: _person.password,
+      ),
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kEmailNullError);
@@ -152,8 +171,6 @@ class _SignUpFormState extends State<SignUpForm> {
       decoration: InputDecoration(
         labelText: "Email",
         hintText: "Enter your email",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),

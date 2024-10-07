@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'components/body.dart';
+import 'components/su_body.dart';
 
 class SignUpScreen extends StatelessWidget {
   static String routeName = "/sign_up";
@@ -10,7 +10,7 @@ class SignUpScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Sign Up"),
       ),
-      body: Body(),
+      body: SUBody(),
     );
   }
 }

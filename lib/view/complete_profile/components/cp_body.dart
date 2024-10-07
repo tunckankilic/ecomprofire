@@ -4,7 +4,7 @@ import '../../../app/constants/constants.dart';
 import '../../../app/constants/size_config.dart';
 import 'complete_profile_form.dart';
 
-class Body extends StatelessWidget {
+class CPBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

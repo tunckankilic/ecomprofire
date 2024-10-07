@@ -6,40 +6,41 @@ import 'package:flutter/foundation.dart';
 
 import 'package:ecomprofire/app/base/models/Product.dart';
 
-class DIYmodel {
-  final String id;
-  final String title;
-  final String description;
-  final List<Product> products;
-  final int amount;
-  final double rating;
-  final double price;
-  DIYmodel({
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+
+class DIYModel {
+  String id;
+  String title;
+  String description;
+  String imagePath;
+  List<String> steps;
+  double price;
+  DIYModel({
     required this.id,
     required this.title,
     required this.description,
-    required this.products,
-    required this.amount,
-    required this.rating,
+    required this.imagePath,
+    required this.steps,
     required this.price,
   });
 
-  DIYmodel copyWith({
+  DIYModel copyWith({
     String? id,
     String? title,
     String? description,
-    List<Product>? products,
-    int? amount,
-    double? rating,
+    String? imagePath,
+    List<String>? steps,
     double? price,
   }) {
-    return DIYmodel(
+    return DIYModel(
       id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
-      products: products ?? this.products,
-      amount: amount ?? this.amount,
-      rating: rating ?? this.rating,
+      imagePath: imagePath ?? this.imagePath,
+      steps: steps ?? this.steps,
       price: price ?? this.price,
     );
   }
@@ -49,44 +50,44 @@ class DIYmodel {
       'id': id,
       'title': title,
       'description': description,
-      'products': products.map((x) => x.toMap()).toList(),
-      'amount': amount,
-      'rating': rating,
+      'imagePath': imagePath,
+      'steps': steps,
       'price': price,
     };
   }
 
-  factory DIYmodel.fromMap(DocumentSnapshot map) {
-    return DIYmodel(
+  factory DIYModel.fromMap(Map<String, dynamic> map) {
+    return DIYModel(
       id: map['id'] as String,
       title: map['title'] as String,
       description: map['description'] as String,
-      products: List<Product>.from(
-        (map['products'] as List<int>).map<Product>(
-          (x) => Product.fromMap(x as Map<String, dynamic>),
-        ),
+      imagePath: map['imagePath'] as String,
+      steps: List<String>.from(
+        (map['steps'] as List<String>),
       ),
-      amount: map['amount'] as int,
-      rating: map['rating'] as double,
       price: map['price'] as double,
     );
   }
 
+  String toJson() => json.encode(toMap());
+
+  factory DIYModel.fromJson(String source) =>
+      DIYModel.fromMap(json.decode(source) as Map<String, dynamic>);
+
   @override
   String toString() {
-    return 'DIYmodel(id: $id, title: $title, description: $description, products: $products, amount: $amount, rating: $rating, price: $price)';
+    return 'DIYModel(id: $id, title: $title, description: $description, imagePath: $imagePath, steps: $steps, price: $price)';
   }
 
   @override
-  bool operator ==(covariant DIYmodel other) {
+  bool operator ==(covariant DIYModel other) {
     if (identical(this, other)) return true;
 
     return other.id == id &&
         other.title == title &&
         other.description == description &&
-        listEquals(other.products, products) &&
-        other.amount == amount &&
-        other.rating == rating &&
+        other.imagePath == imagePath &&
+        listEquals(other.steps, steps) &&
         other.price == price;
   }
 
@@ -95,9 +96,8 @@ class DIYmodel {
     return id.hashCode ^
         title.hashCode ^
         description.hashCode ^
-        products.hashCode ^
-        amount.hashCode ^
-        rating.hashCode ^
+        imagePath.hashCode ^
+        steps.hashCode ^
         price.hashCode;
   }
 }

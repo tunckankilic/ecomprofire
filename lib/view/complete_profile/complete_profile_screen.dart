@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'components/body.dart';
+import 'components/cp_body.dart';
 
 class CompleteProfileScreen extends StatelessWidget {
   static String routeName = "/complete_profile";
@@ -10,7 +10,7 @@ class CompleteProfileScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Sign Up'),
       ),
-      body: Body(),
+      body: CPBody(),
     );
   }
 }

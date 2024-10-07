@@ -1,7 +1,7 @@
 import 'package:ecomprofire/app/constants/size_config.dart';
 import 'package:flutter/material.dart';
 import '../../app/base/models/cart.dart';
-import 'components/body.dart';
+import 'components/c_body.dart';
 import 'components/check_out_card.dart';
 
 class CartScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class CartScreen extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
+      body: CBody(),
       bottomNavigationBar: CheckoutCard(),
     );
   }

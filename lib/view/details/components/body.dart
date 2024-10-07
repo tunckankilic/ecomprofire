@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../app/base/models/Product.dart';
+import '../../../app/base/models/product.dart';
 import '../../../app/constants/size_config.dart';
 import '../../components/default_button.dart';
 import 'color_dots.dart';

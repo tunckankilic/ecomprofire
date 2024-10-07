@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../app/constants/size_config.dart';
 import 'forgot_pass_form.dart';
 
-class Body extends StatelessWidget {
+class FPBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(

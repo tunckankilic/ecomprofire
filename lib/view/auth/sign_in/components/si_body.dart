@@ -4,7 +4,7 @@ import '../../../components/no_account_text.dart';
 import '../../../components/socal_card.dart';
 import 'sign_form.dart';
 
-class Body extends StatelessWidget {
+class SIBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

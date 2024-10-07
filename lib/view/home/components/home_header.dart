@@ -4,9 +4,7 @@ import 'icon_btn_with_counter.dart';
 import 'search_field.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({
-    Key? key,
-  }) : super(key: key);
+  const HomeHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +17,7 @@ class HomeHeader extends StatelessWidget {
           SearchField(),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Cart Icon.svg",
-            press: (){},
+            press: () {},
           ),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Bell.svg",

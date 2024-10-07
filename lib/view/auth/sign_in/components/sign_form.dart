@@ -1,8 +1,6 @@
+import 'package:ecomprofire/app/app.dart';
 import 'package:ecomprofire/view/auth/forgot_password/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
-import '../../../../app/base/keyboard.dart';
-import '../../../../app/constants/constants.dart';
-import '../../../../app/constants/size_config.dart';
 import '../../../components/custom_surfix_icon.dart';
 import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
